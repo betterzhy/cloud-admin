@@ -1,0 +1,11 @@
+server:
+  port: 20080
+
+spring:
+  application:
+    name: CLOUD-ADMIN
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.15.0.3:8848

@@ -1,0 +1,39 @@
+server:
+  port: 20050
+
+spring:
+  application:
+    name: CLOUD-GATEWAY
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.15.0.3:8848
+    gateway:
+      routes:
+        - id: admin-router
+          uri: lb://CLOUD-ADMIN
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+
+        - id: category-router
+          uri: lb://CLOUD-CATEGORY
+          predicates:
+            - Path=/category/**
+          filters:
+            - StripPrefix=1
+
+        - id: user-router
+          uri: lb://CLOUD-USER
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+
+        - id: video-router
+          uri: lb://CLOUD-VIDEO
+          predicates:
+            - Path=/video/**
+          filters:
+            - StripPrefix=1

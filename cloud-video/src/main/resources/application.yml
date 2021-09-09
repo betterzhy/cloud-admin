@@ -1,0 +1,12 @@
+server:
+  port: 20083
+
+spring:
+  application:
+    name: CLOUD-VIDEO
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.15.0.3:8848
+    

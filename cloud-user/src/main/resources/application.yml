@@ -1,0 +1,12 @@
+server:
+  port: 20082
+
+spring:
+  application:
+    name: CLOUD-USER
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.15.0.3:8848
+    

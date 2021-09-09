@@ -1,0 +1,11 @@
+server:
+  port: 20081
+
+spring:
+  application:
+    name: CLOUD-CATEGORY
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.15.0.3:8848
