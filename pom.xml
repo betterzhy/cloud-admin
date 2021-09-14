@@ -107,9 +107,9 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <configuration>
-                        <imageName>cloud-admin/${project.artifactId}:${project.version}</imageName>
+                        <imageName>${project.artifactId}:${project.version}</imageName>
                         <baseImage>java:8</baseImage>
-                        <entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>
+                        <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                         <resources>
                             <resource>
                                 <targetPath>/</targetPath>
