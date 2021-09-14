@@ -103,21 +103,35 @@
                     <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
 
+                <!--将jar包打包成镜像-->
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <configuration>
                         <imageName>${project.artifactId}:${project.version}</imageName>
                         <baseImage>java:8</baseImage>
-                        <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                        <entryPoint>["java", "-jar", "/${project.artifactId}-${project.version}.jar"]</entryPoint>
                         <resources>
                             <resource>
                                 <targetPath>/</targetPath>
                                 <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.war</include>
+                                <include>${project.artifactId}-${project.version}.jar</include>
                             </resource>
                         </resources>
                     </configuration>
+
+                    <!--将插件绑定在某个phase执行-->
+                    <executions>
+                        <execution>
+                            <id>build-image</id>
+                            <!--将插件绑定在package这个phase上。也就是说，用户只需执行mvn package ，就会自动执行mvn docker:build-->
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+
                 </plugin>
             </plugins>
         </pluginManagement>

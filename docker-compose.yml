@@ -45,3 +45,47 @@ services:
     command:
       redis-server --requirepass mongs123
 
+  cloud-admins:
+    image: cloud-admins:1.0-SNAPSHOT
+    ports:
+      - "20080:20080"
+    depends_on:
+      - mysql
+      - nacos
+      - redis
+
+  cloud-category:
+    image: cloud-category:1.0-SNAPSHOT
+    ports:
+      - "20081:20081"
+    depends_on:
+      - mysql
+      - nacos
+      - redis
+
+  cloud-gateway:
+    image: cloud-gateway:1.0-SNAPSHOT
+    ports:
+      - "20050:20050"
+    depends_on:
+      - mysql
+      - nacos
+      - redis
+
+  cloud-user:
+    image: cloud-user:1.0-SNAPSHOT
+    ports:
+      - "20082:20082"
+    depends_on:
+      - mysql
+      - nacos
+      - redis
+
+  cloud-video:
+    image: cloud-video:1.0-SNAPSHOT
+    ports:
+      - "20083:20083"
+    depends_on:
+      - mysql
+      - nacos
+      - redis

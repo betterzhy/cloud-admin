@@ -44,7 +44,7 @@ public class CategoryController {
 
     @PostMapping("/deleteCategory")
     public ApiResponse<?> deleteCategory(Integer id) {
-        if(this.categoryService.deleteById(id)){
+        if(!this.categoryService.deleteById(id)){
             throw new ApiException("delete category failed!");
         }
         return ApiResponse.ok("delete category successful!");
