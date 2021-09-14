@@ -1,21 +1,47 @@
 version: "3.9"
 
 networks:
-  cloud-admin:
+  cloud-admin-network:
 
 volumes:
+  mysql:
   redis:
   rabbitmq:
 
 services:
   nacos:
     image: nacos/nacos-server:2.0.2
+    networks:
+      - cloud-admin-network
     ports:
-    - 8848:8848
+      - "8848:8848"
     environment:
       - "JVM_XMS=256m"
       - "JVM_XMX=256m"
       - "MODE=standalone"
+
+
+  mysql:
+    image: mysql:5.7
     networks:
-      - cloud-admin
+      - cloud-admin-network
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./cloud-admin.sql:/docker-entrypoint-initdb.d/cloud-admin.sql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=mongs123"
+      - "MYSQL_DATABASE=cloud_admin"
+
+  redis:
+    image: redis:5.0
+    networks:
+      - cloud-admin-network
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/data
+    command:
+      redis-server --requirepass mongs123
 

@@ -9,4 +9,23 @@ spring:
     nacos:
       discovery:
         server-addr: 10.15.0.3:8848
-    
+
+  datasource:
+    url: jdbc:mysql://10.15.0.3:3306/cloud_admin?characterEncoding=utf-8&useSSL=false
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: mongs123
+
+    redis:
+      host: 10.15.0.3
+      port: 6379
+      password: mongs123
+
+
+  mybatis-plus:
+    mapper-locations: "classpath*:/mapper/**/*.xml"
+    configuration:
+      map-underscore-to-camel-case: true
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    type-aliases-package: com.zhy.entity,com.zhy.dto
