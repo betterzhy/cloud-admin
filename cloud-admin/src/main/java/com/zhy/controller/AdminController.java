@@ -1,24 +1,31 @@
 package com.zhy.controller;
 
-import com.zhy.commons.ApiResponse;
+import com.zhy.commons.model.ApiResponse;
 import com.zhy.dto.AdminProfile;
 import com.zhy.dto.LoginRequest;
 import com.zhy.dto.RegisterRequest;
 import com.zhy.entity.Admin;
 import com.zhy.service.AdminService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
  * @author zhy
  */
+@RefreshScope
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
+    private static final Logger log = LoggerFactory.getLogger(AdminController.class);
     @Autowired
     private AdminService adminService;
 

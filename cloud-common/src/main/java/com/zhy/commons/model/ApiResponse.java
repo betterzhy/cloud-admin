@@ -1,6 +1,7 @@
-package com.zhy.commons;
+package com.zhy.commons.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.zhy.commons.constant.ResponseCode;
 
 import java.io.Serializable;
 
@@ -15,6 +16,9 @@ public class ApiResponse<T> implements Serializable {
     private Integer code;
     private String message;
     private T data;
+
+    public ApiResponse() {
+    }
 
     public ApiResponse(boolean success, Integer code, String message, T data) {
         this.success = success;
@@ -86,12 +90,14 @@ public class ApiResponse<T> implements Serializable {
     public void setData(T data) {
         this.data = data;
     }
-}
 
-interface ResponseCode {
-    int OK = 200; // 请求处理成功
-    int BAD = 400; // 请求处理失败
-    int UNAUTHORIZED = 401; // 请求未认证
-    int FORBIDDEN = 403; // 未授权
-    int ERROR = 500; // 严重或未知错误
+    @Override
+    public String toString() {
+        return "ApiResponse{" +
+                "success=" + success +
+                ", code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

@@ -1,4 +1,4 @@
-package com.zhy.commons;
+package com.zhy.commons.exception;
 
 /**
  * @author zhy

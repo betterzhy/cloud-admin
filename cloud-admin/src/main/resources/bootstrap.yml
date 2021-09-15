@@ -1,0 +1,8 @@
+server:
+  port: 20080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-admin

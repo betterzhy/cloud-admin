@@ -1,15 +1,4 @@
-server:
-  port: 20081
-
 spring:
-  application:
-    name: CLOUD-CATEGORY
-
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 10.15.0.3:8848
-
   datasource:
     url: jdbc:mysql://10.15.0.3:3306/cloud_admin?characterEncoding=utf-8&useSSL=false
     type: com.zaxxer.hikari.HikariDataSource

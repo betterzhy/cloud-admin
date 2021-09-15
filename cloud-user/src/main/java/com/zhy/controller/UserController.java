@@ -1,6 +1,6 @@
 package com.zhy.controller;
 
-import com.zhy.commons.ApiResponse;
+import com.zhy.commons.model.ApiResponse;
 import com.zhy.dto.UserQueryCriteria;
 import com.zhy.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;

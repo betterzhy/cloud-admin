@@ -45,8 +45,8 @@ services:
     command:
       redis-server --requirepass mongs123
 
-  cloud-admins:
-    image: cloud-admins:1.0-SNAPSHOT
+  cloud-admin:
+    image: cloud-admin:1.0-SNAPSHOT
     ports:
       - "20080:20080"
     depends_on:

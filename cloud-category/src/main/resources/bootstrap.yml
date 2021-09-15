@@ -1,0 +1,8 @@
+server:
+  port: 20081
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cloud-category

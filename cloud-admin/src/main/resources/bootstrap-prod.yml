@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://10.15.0.3:8848
+      config:
+        server-addr: http://10.15.0.3:8848
+        group: CLOUD_ADMIN_GROUP
+        file-extension: yml
