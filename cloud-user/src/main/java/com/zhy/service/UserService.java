@@ -1,6 +1,6 @@
 package com.zhy.service;
 
-import com.zhy.commons.PagedResponse;
+import com.zhy.commons.model.PagedResponse;
 import com.zhy.dto.UserQueryCriteria;
 import com.zhy.entity.User;
 

@@ -3,7 +3,7 @@ package com.zhy.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.zhy.commons.PagedResponse;
+import com.zhy.commons.model.PagedResponse;
 import com.zhy.dao.UserMapper;
 import com.zhy.dto.UserQueryCriteria;
 import com.zhy.entity.User;

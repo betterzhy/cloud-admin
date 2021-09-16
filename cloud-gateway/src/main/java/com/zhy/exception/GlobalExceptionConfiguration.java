@@ -50,9 +50,9 @@ public class GlobalExceptionConfiguration implements ErrorWebExceptionHandler {
                 .writeWith(Mono.fromSupplier(() -> {
                     DataBufferFactory bufferFactory = response.bufferFactory();
                     restResponse.setMessage(ex.getMessage());
-                    log.info(restResponse.toString());
                     ObjectMapper objectMapper = new ObjectMapper();
                     try {
+                        log.info(new ObjectMapper().writeValueAsString(restResponse));
                         return bufferFactory.wrap(objectMapper.writeValueAsBytes(restResponse));
                     } catch (JsonProcessingException e) {
                         e.printStackTrace();

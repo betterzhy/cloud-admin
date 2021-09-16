@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
      * 自定义异常处理
      */
     @ExceptionHandler(value = ApiException.class)
     public ApiResponse<?> handleApiException(ApiException e) {
-        LOGGER.warn(e.getMessage());
+        log.warn(e.getMessage());
         return ApiResponse.bad(e.getMessage());
     }
 
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
             FieldError fieldError = bindingResult.getFieldError();
             if (fieldError != null) {
                 message = fieldError.getField() + " " + fieldError.getDefaultMessage();
-                LOGGER.warn(message);
+                log.warn(message);
             }
         }
         return ApiResponse.bad(message);
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(value = Exception.class)
     public ApiResponse<?> handleException(Exception e) {
-        LOGGER.error(e.getMessage());
+        log.error(e.getMessage());
         e.printStackTrace();
         return ApiResponse.bad(e.getMessage());
     }

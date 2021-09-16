@@ -6,15 +6,35 @@ spring:
           uri: lb://cloud-admin
           predicates:
             - Path=/admin/**
+          filters:
+            - SwaggerHeaderFilter
+
         - id: category-router
           uri: lb://cloud-category
           predicates:
             - Path=/category/**
+          filters:
+            - SwaggerHeaderFilter
+
         - id: user-router
           uri: lb://cloud-user
           predicates:
             - Path=/user/**
+          filters:
+            - SwaggerHeaderFilter
+
         - id: video-router
           uri: lb://cloud-video
           predicates:
             - Path=/video/**
+          filters:
+            - SwaggerHeaderFilter
+
+open-api:
+  swagger:
+    resources:
+      - cloud-admin,/admin,default
+      - cloud-category,/category,default
+      - cloud-user,/user,default
+      - cloud-video,/video,default
+

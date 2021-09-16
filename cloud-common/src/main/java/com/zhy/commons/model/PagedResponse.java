@@ -1,4 +1,4 @@
-package com.zhy.commons;
+package com.zhy.commons.model;
 
 import java.util.List;
 
